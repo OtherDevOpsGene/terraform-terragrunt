@@ -2,7 +2,7 @@
 
 Some guided exercises to get familiar with:
 - Multiple configuration files
-- count meta-argument
+- `count` meta-argument
 - Input variables
 - Assigning values
 - Local values
