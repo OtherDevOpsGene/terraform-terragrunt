@@ -43,7 +43,7 @@ Some guided exercises to get familiar with:
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.49.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.49.0 |
 
 ## Modules
 
