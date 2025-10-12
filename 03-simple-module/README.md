@@ -1,6 +1,7 @@
 # Lesson 03- Simple module
 
 Exercises to begin writing Terraform code with modules.
+
 - Module basics
 - `for_each` meta-argument
 - Dynamic blocks
@@ -9,7 +10,7 @@ Exercises to begin writing Terraform code with modules.
 
 ## Exercise - Double
 
-- Change the code to produce two webservers
+- Change the code to produce two web servers
 - Make sure the servers are named appropriately (not identically)
 - No other changes
 - Apply or plan the changes
@@ -39,14 +40,14 @@ Exercises to begin writing Terraform code with modules.
 - Use the `aws_ec2_instance_state` resource
 - `Apply` to add the state, but it may take a second `apply` to see results
 
-
+<!-- terraform-docs markdown table --output-file README.md --output-mode inject . -->
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.8.3 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.49.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.13.3 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.16.0 |
 
 ## Providers
 

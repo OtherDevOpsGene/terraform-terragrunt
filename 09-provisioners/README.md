@@ -1,6 +1,7 @@
 # Lesson 09- provisioners
 
 Experiment with provisioning resources.
+
 - `user_data`
 - Passing data
 - Provisioners
@@ -29,6 +30,3 @@ Experiment with provisioning resources.
 - You may need to taint the server for `user_data` and `index.html` changes
 - Test from the command line with curl `http://privateIP:8080`
 - Test from your browser with `http://publicDNS:8080`
-
-
-

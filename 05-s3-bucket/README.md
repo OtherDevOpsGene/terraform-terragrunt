@@ -1,6 +1,7 @@
 # Lesson 05- Third-party modules
 
 Exercise to use third-party modules.
+
 - Module registries
 - Version constraints
 - Supply chain attacks

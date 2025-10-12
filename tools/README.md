@@ -12,8 +12,8 @@ Some tools to help use Terraform.
   - [Terratest](https://terratest.gruntwork.io/)
 - [Terragrunt](https://terragrunt.gruntwork.io/)
 - CI/CD
-  - [Terraform Cloud](https://www.hashicorp.com/products/terraform) 
+  - [Terraform Cloud](https://www.hashicorp.com/products/terraform)
   - [Atlantis](https://www.runatlantis.io/)
   - [Spacelift](https://spacelift.io/)
 
-More tools at https://spacelift.io/blog/terraform-tools
+More tools at <https://spacelift.io/blog/terraform-tools>
