@@ -6,7 +6,7 @@ variable "owner_email" {
 variable "class_name" {
   description = "The name of the class this was created for."
   type        = string
-  default     = "Terraform Fundamentals"
+  default     = "Terraform and Terragrunt"
 }
 
 variable "server_name" {

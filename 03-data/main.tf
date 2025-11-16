@@ -6,13 +6,13 @@ data "aws_ec2_instance_type" "webserver" {
   instance_type = var.instance_type
 }
 
-data "aws_ami" "ubuntu_focal" {
+data "aws_ami" "ubuntu_noble" {
   most_recent = true
   owners      = local.canonical_owner_ids
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/*-ssd/ubuntu-*-20.04-*-server-*"]
+    values = ["ubuntu/images/*/ubuntu-noble-24.04-*-server-*"]
   }
 
   filter {
@@ -27,7 +27,7 @@ data "aws_ami" "ubuntu_focal" {
 }
 
 resource "aws_instance" "webserver" {
-  ami           = data.aws_ami.ubuntu_focal.id
+  ami           = data.aws_ami.ubuntu_noble.id
   instance_type = var.instance_type
 
   ebs_optimized = true
@@ -37,13 +37,9 @@ resource "aws_instance" "webserver" {
     http_tokens = "required"
   }
 
-  root_block_device {
-    encrypted = true
-  }
-
-  tags = var.tags
-
-  lifecycle {
-    create_before_destroy = true
+  tags = {
+    Name  = var.server_name
+    Owner = var.owner_email
+    Class = var.class_name
   }
 }
