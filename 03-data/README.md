@@ -1,10 +1,10 @@
-# Lesson 03 - Data sources and Output values
+# Lesson 03 - Data sources, output values, and local state
 
 Some guided exercises to get familiar with:
 
-- Local values
 - Data sources
 - Output values
+- Modules
 
 ## Group Exercise - Data sources
 
@@ -23,6 +23,8 @@ instance from the Lesson 02 instance).
 
 Apply the configuration to create the instance.
 
+<!-- Discuss local variable and the data source -->
+
 ## Group exercise - Output values
 
 Notice the output from the `terraform apply`. It includes some output values
@@ -33,6 +35,19 @@ Add new outputs to the `outputs.tf` to retrieve:
 
 - The memory size of the instance type
 - The public DNS name of the instance
+
+## Modules
+
+
+
+## Exercise - Using a third-party module
+
+- Use the Cloud Posse `tfstate-backend` module to create an AWS S3 bucket and a DynamoDB table to manage a remote state file
+- Set the namespace to be your initials
+- Set the name to be 4 digits of your choice (to keep things unique)
+- Output the rendered Terraform backend configuration file to the screen
+- Note the modules and providers used
+- Note the version constraints used for the providers
 
 ## Don't clean up, again
 
@@ -48,8 +63,8 @@ with `terraform apply`.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.13.3 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.16.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.14.3 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.27.0 |
 
 ## Providers
 

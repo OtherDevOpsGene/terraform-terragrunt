@@ -1,11 +1,10 @@
-# Lesson 04 - State
+# Lesson 05 - Terragrunt
 
 Some guided exercises to get familiar with:
 
 - Terraform block
 - Provider block
 - Local state
-- Remote state
 
 ## Explanation - Terraform Block
 
@@ -126,40 +125,13 @@ but can't be shared. Even if you did copy the state file or use `import`
 commands to add resources to the state, local state files couldn't prevent
 concurrent modifications from leaving resources in an undefined state.
 
-## Group Exercise - Idempotency, again
+## Don't clean up, again
 
-<!-- 
-Run this as the instructor:
+Leave everything running for Lesson 04. These instances will be the examples in
+our next lesson.
 
-aws ec2 create-tags \
-  --resources $(aws ec2 describe-instances \
-    --filters "Name=image-id,Values=ami-039e808802de4ff32" "Name=instance-state-name,Values=running" \
-    --query "Reservations[*].Instances[*].InstanceId" \
-    --output text) \
-  --tags "Key=Sneaky,Value='Someone added this while you weren\'t looking'"
-
--->
-
-We've left the last two instances we created running. jump back into each
-directory and reapply the configuration to make sure nothing has changed.
-
-```shell
-cd ../02-variables
-terraform apply
-cd ../03-data
-terraform apply
-```
-
-## Group Exercise - Remote State
-
-
-## Clean up
-
-Before Lesson 02, please clean up.
-
-```shell
-terraform destroy
-```
+If you already did `terraform destroy`, remember you can recreate what you need
+with `terraform apply`.
 
 <!-- terraform-docs markdown table --output-file README.md --output-mode inject . -->
 <!-- BEGIN_TF_DOCS -->
@@ -168,7 +140,7 @@ terraform destroy
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.14.3 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.16.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.27.0 |
 
 ## Providers
 
@@ -184,13 +156,24 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_instance.hello_world](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
+| [aws_instance.webserver](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
+| [aws_ami.ubuntu_noble](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
+| [aws_ec2_instance_type.webserver](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ec2_instance_type) | data source |
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | AWS region to work in. | `string` | `"us-east-2"` | no |
+| <a name="input_class_name"></a> [class\_name](#input\_class\_name) | The name of the class this was created for. | `string` | `"Terraform and Terragrunt"` | no |
+| <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The AWS EC2 instance type to create. | `string` | `"t4g.nano"` | no |
+| <a name="input_owner_email"></a> [owner\_email](#input\_owner\_email) | The email address of the person responsible for the resources. | `string` | n/a | yes |
+| <a name="input_server_name"></a> [server\_name](#input\_server\_name) | Base name for the webserver instances. | `string` | n/a | yes |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_instance_ami_name"></a> [instance\_ami\_name](#output\_instance\_ami\_name) | The name of the AMI that the instance is using. |
+| <a name="output_instance_private_ip"></a> [instance\_private\_ip](#output\_instance\_private\_ip) | Private IP address of the instance. |
 <!-- END_TF_DOCS -->

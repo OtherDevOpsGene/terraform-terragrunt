@@ -6,7 +6,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.13.3 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.14.3 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.16.0 |
 
 ## Providers
@@ -31,7 +31,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_availability_zone"></a> [availability\_zone](#input\_availability\_zone) | Which availability zone to deploy the webserver to. | `string` | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The AWS EC2 instance type to create. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply to the webserver. | `map(any)` | n/a | yes |
 

@@ -76,7 +76,7 @@ terraform plan
 
 ## Don't clean up
 
-Leave a mess for Lesson 03- we'll be using it as a learning opportunity.
+Leave a mess for Lesson 04- we'll be using it as a learning opportunity.
 
 If you already destroyed your instance, good news- with infrastructure-as-code
 it is trivial to recreate it.
@@ -87,14 +87,14 @@ it is trivial to recreate it.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.13.3 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.16.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.14.3 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.27.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 6.16.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.16.0 |
 
 ## Modules
 

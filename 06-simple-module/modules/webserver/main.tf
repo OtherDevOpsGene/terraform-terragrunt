@@ -27,9 +27,8 @@ data "aws_ami" "ubuntu_focal" {
 }
 
 resource "aws_instance" "webserver" {
-  ami               = data.aws_ami.ubuntu_focal.id
-  availability_zone = var.availability_zone
-  instance_type     = var.instance_type
+  ami           = data.aws_ami.ubuntu_focal.id
+  instance_type = var.instance_type
 
   ebs_optimized = true
   monitoring    = true

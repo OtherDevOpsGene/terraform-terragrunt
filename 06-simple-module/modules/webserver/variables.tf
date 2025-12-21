@@ -7,8 +7,3 @@ variable "tags" {
   description = "Tags to apply to the webserver."
   type        = map(any)
 }
-
-variable "availability_zone" {
-  description = "Which availability zone to deploy the webserver to."
-  type        = string
-}
