@@ -7,7 +7,7 @@ module "www" {
     Name   = var.server_name
     Owner  = var.owner_email
     Class  = var.class_name
-    Lesson = "lesson-03"
+    Lesson = "lesson-06"
   }
 }
 

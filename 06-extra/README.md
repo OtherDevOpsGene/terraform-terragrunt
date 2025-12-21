@@ -1,14 +1,20 @@
-# Lesson 03- Simple module
+# Lesson 06- Extra exercises
 
-Self-guided exercises to begin writing Terraform code with modules.
+Self-guided exercises to continue learning Terraform and modules.
 
-- Module basics
+- Local module
+- `count` meta-argument
 - `for_each` meta-argument
-- Dynamic blocks
-- Drift
-- Tainting a resource
+
+## Examine - Local module
+
+Take a moment to look at the module code under `modules/webserver` and see
+how input variables and output values are used to pass values from our top-level
+code down to the `webserver` module and then back up top.
 
 ## Exercise - Double
+
+See <https://developer.hashicorp.com/terraform/language/meta-arguments/count>.
 
 - Change the code to produce two web servers
 - Make sure the servers are named appropriately (not identically)
@@ -19,12 +25,18 @@ Self-guided exercises to begin writing Terraform code with modules.
 
 ## Exercise - Availability zones
 
+See
+<https://developer.hashicorp.com/terraform/language/meta-arguments/count#create-multiple-instances-of-module-resources>.
+
 - Define a local value with a list: `["us-east-2a", "us-east-2c"]`
 - Add an input variable to the module for availability zone
   - The module **does** change this time
 - Redeploy so one server is in `us-east-2a`, the other in `us-east-2c`
 
 ## Exercise - for_each
+
+See
+<https://developer.hashicorp.com/terraform/language/meta-arguments/for_each>.
 
 - Comment out the private IP address output value for now
 - Use `for_each` to deploy to `us-east-2a` and `us-east-2c`
@@ -35,6 +47,9 @@ Self-guided exercises to begin writing Terraform code with modules.
 - **Bigger stretch:** Fix the output value to work
 
 ## Exercise - Keep instances running
+
+See
+<https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_instance_state>.
 
 - Change the `webserver` module to add the state as `running`
 - Use the `aws_ec2_instance_state` resource

@@ -12,7 +12,7 @@ data "aws_ami" "ubuntu_focal" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/*-ssd/ubuntu-*-20.04-*-server-*"]
+    values = ["ubuntu/images/*/ubuntu-noble-24.04-*-server-*"]
   }
 
   filter {

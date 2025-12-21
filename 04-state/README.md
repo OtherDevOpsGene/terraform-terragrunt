@@ -129,6 +129,7 @@ concurrent modifications from leaving resources in an undefined state.
 ## Group Exercise - Idempotency, again
 
 <!-- 
+
 Run this as the instructor:
 
 aws ec2 create-tags \
@@ -155,9 +156,15 @@ terraform apply
 
 ## Clean up
 
-Before Lesson 02, please clean up.
+Before Lesson 05, please clean up.
+
+You'll have to jump into the earlier directories to clean them as well
 
 ```shell
+terraform destroy
+cd ../02-variables
+terraform destroy
+cd ../03-data
 terraform destroy
 ```
 
