@@ -1,4 +1,4 @@
-# Lesson 03- Data sources and Output values
+# Lesson 03 - Data sources and Output values
 
 Some guided exercises to get familiar with:
 

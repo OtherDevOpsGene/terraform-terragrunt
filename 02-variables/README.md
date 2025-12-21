@@ -1,4 +1,4 @@
-# Lesson 02- Input variables
+# Lesson 02 - Input variables
 
 Some guided exercises to get familiar with:
 
