@@ -1,4 +1,4 @@
-# Lesson 01- Hello world
+# Lesson 01 - Hello world
 
 Some simple exercises to get used to:
 
@@ -15,7 +15,7 @@ Look at `main.tf` to see the `resource` that we want to create. Ignore the
 ```terraform
 resource "aws_instance" "hello_world" {
   # AMI ID from https://cloud-images.ubuntu.com/locator/ec2/
-  ami           = "ami-02ee5a6c04de8002a"
+  ami           = "ami-07f75595710e1c42b"
   instance_type = "t4g.nano"
 
   tags = {
@@ -27,7 +27,9 @@ resource "aws_instance" "hello_world" {
 
 We'll get more into the details, but we are specifying that our desired state is
 to have an AWS EC2 instance with a specific machine image running on a
-`t4g.nano` server with a couple of tags applied.
+`t4g.nano` server with a couple of tags applied. That machine instance happens
+to be Ubuntu Linux, but without the comment, we couldn't tell that just by
+reading the `resource` block.
 
 Here is the typical Terraform lifecycle to bring our desired state to life.
 
@@ -56,7 +58,7 @@ Terraform is:
 
 - **Declarative**: describe the final state, not how to get there
 - **Stateful**: track how things are created, not all or nothing when creating
-- **Idempotent**: don't do anything is you don't have to
+- **Idempotent**: nothing to change means no action to take
 
 ## Group Exercise - Goodbye Hello World
 
@@ -72,17 +74,6 @@ But we can recreate them if we want.
 
 ```shell
 terraform apply
-```
-
-## Sidebar- AWS Authorization
-
-The [AWS
-provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration)
-grants access the same way the AWS CLI does.
-
-```shell
-aws sts get-caller-identity
-aws s3 ls
 ```
 
 ## Exercise - Update AWS instance
