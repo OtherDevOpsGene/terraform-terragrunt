@@ -5,9 +5,8 @@ Some guided exercises to get familiar with:
 - Terraform block
 - Provider block
 - Local state
-- Remote state
 
-## Explanation - Terraform Block
+## Explanation - Terraform block
 
 Starting back in Lesson 01, we saw, but largely ignored the `terraform` and
 `provider` clocks. This block configures our Terraform specification.
@@ -54,7 +53,7 @@ options](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) that
 could be specified here, but all we needed was a way to specify the `region` to
 work in, which we've made a variable.
 
-## Sidebar- AWS Authorization
+## Sidebar- AWS authorization
 
 The AWS provider [grants
 access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration)
@@ -69,12 +68,12 @@ aws sts get-caller-identity
 aws s3 ls
 ```
 
-## Group Exercise - Local Backend
+## Group Exercise - Local backend
 
 Of major importance in the `terraform` block, we can configure the `backend` to
 use. We haven't specified any, so we are using the default backend, which is
-local and file based. You might have noticed a `terraform.tfstate` file being
-created in the directory you are working from, and possibly a
+local to our code and file based. You might have noticed a `terraform.tfstate`
+file being created in the directory you are working from, and probably a
 `terraform.tfstate.backup` file as well.
 
 You can view the state file directly, but we have some command-line tools to
@@ -89,12 +88,12 @@ terraform state show "aws_instance.webserver"
 
 Examining state like this is similar to configuring a lot of output values.
 
-## Quick Exercise - Examine State
+## Quick Exercise - Examine state
 
 - Use the state to find the memory size of the configured instance
 - **Stretch:** Find the AMI ID for the dynamically selected Ubuntu image
 
-## Group Exercise - Multiple State Files
+## Group Exercise - Multiple state files
 
 Run the following AWS CLI command to see all of the instances currently running
 in the AWS account:
@@ -151,14 +150,12 @@ cd ../03-data
 terraform apply
 ```
 
-## Group Exercise - Remote State
-
-
 ## Clean up
 
 Before Lesson 05, please clean up.
 
-You'll have to jump into the earlier directories to clean them as well
+You'll have to jump into the earlier directories to clean them as well, since
+that is where their state files are kept.
 
 ```shell
 terraform destroy

@@ -1,47 +1,49 @@
-# Lesson 03 - Data sources and output values
+# Lesson 06 - Remote state
 
 Some guided exercises to get familiar with:
 
-- Data sources
-- Output values
+- Remote state
 
-## Group Exercise - Data sources
+## Exercise - Add the remote state backend
 
-Sometimes we don't need to create a resource but we don't know what the value
-is to specify it as an input variable. In these cases, we can use a data source.
+This lesson is very similar to Lesson 03 - Data and Lesson 04 - State, but we
+are going to use a remote state backend.
 
-For example, we've been hard coding the AMI ID for the Ubuntu Noble operating
-system. The value we are using happens to be a few months old. If we wanted, we
-could look up the latest ID manually every time we built, or we can have
-Terraform look it up for us.
+- Update the `terraform` block in the `providers.tf` file with the backend
+  configuration from our previous lesson
+  - Use `lesson06` or similar for the `key`
+- Apply
 
-Create a `terraform.tfvars` file for your instance, making sure to use the same
-email address for the owner as you did in Lesson 02 (so we can group instances
-that you created) and a different server name (so we can tell the Lesson 03
-instance from the Lesson 02 instance).
+## Group Exercise - Remote backend
 
-Apply the configuration to create the instance.
+Now that we have a remote backend, let's repeat looking at the state.
 
-<!-- Discuss local variable and the data source -->
+```shell
+terraform show
+terraform state list
+terraform state show "aws_instance.webserver"
+```
 
-## Group exercise - Output values
+These commands work the same on a remote state backend as with a local backend.
+Only we can't look directly at the `terraform.tfstate` anymore, since it no
+longer exists.
 
-Notice the output from the `terraform apply`. It includes some output values
-that were defined in `outputs.tf`. This is how you find out what values were
-assigned to resources that you created dynamically.
+```shell
+ls -l terraform.tfstate*
+```
 
-Add new outputs to the `outputs.tf` to retrieve:
+## Quick Exercise - Examine state
 
-- The memory size of the instance type
-- The public DNS name of the instance
+- Use the state to find the memory size of the configured instance
+- Find the AMI ID for the dynamically selected Ubuntu image
 
-## Don't clean up, again
+## Exercise - Clean up
 
-Leave everything running. These instances will be the examples in a later
-lesson.
+After examining the state, please clean up.
 
-If you already did `terraform destroy`, remember you can recreate what you need
-with `terraform apply`.
+```shell
+terraform destroy
+```
 
 <!-- terraform-docs markdown table --output-file README.md --output-mode inject . -->
 <!-- BEGIN_TF_DOCS -->

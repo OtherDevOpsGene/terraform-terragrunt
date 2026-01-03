@@ -1,10 +1,17 @@
-# Lesson 06- Extra exercises
+# Lesson 08- Extra exercises
 
 Self-guided exercises to continue learning Terraform and modules.
 
 - Local module
 - `count` meta-argument
 - `for_each` meta-argument
+
+## Update - Remote backend
+
+- Update the `terraform` block in the `providers.tf` file with the backend
+  configuration from our previous lesson
+  - Use a different `key` than before
+- Apply
 
 ## Examine - Local module
 

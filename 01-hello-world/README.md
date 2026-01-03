@@ -7,7 +7,7 @@ Some simple exercises to get used to:
 - Idempotency
 - Terraform configuration language
 
-## Group Exercise - Hello World
+## Group Exercise - Hello world
 
 Look at `main.tf` to see the `resource` that we want to create. Ignore the
 `terraform` and `provider` blocks for now.
@@ -60,7 +60,7 @@ Terraform is:
 - **Stateful**: track how things are created, not all or nothing when creating
 - **Idempotent**: nothing to change means no action to take
 
-## Group Exercise - Goodbye Hello World
+## Group Exercise - Goodbye hello world
 
 Once we are done with our resources, we can turn them off.
 
@@ -68,7 +68,7 @@ Once we are done with our resources, we can turn them off.
 terraform destroy
 ```
 
-## Group Exercise - Hello Again
+## Group Exercise - Hello again
 
 But we can recreate them if we want.
 
