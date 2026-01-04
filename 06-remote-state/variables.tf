@@ -17,7 +17,7 @@ variable "server_name" {
 variable "instance_type" {
   description = "The AWS EC2 instance type to create."
   type        = string
-  default    = "t4g.nano"
+  default     = "t4g.nano"
 }
 
 variable "aws_region" {
