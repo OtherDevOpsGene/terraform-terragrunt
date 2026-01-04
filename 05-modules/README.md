@@ -50,14 +50,15 @@ We are back to not cleaning up after ourselves. But this time, it is a strategic
 decision, not just a set up for the next lesson.
 
 Once we have the remote state backend set up, we can and should use that as our
-backend forevermore. We will use different `keys` (you'll see) to distinguish
-states from each other, but they will all go into the single backend.
+backend forevermore. We will use a different `key` (you'll see) each time to
+distinguish states from each other, but they will all go into the single
+backend.
 
 In practice, you'll likely end up with a single backend for each cloud account.
-All configurations within each of those accounts will share the backend. And
-that backend almost never needs to change, so we can afford to keep its state
-local. Plus we have a chicken-and-egg situation creating a remote backend for
-the remote backend that is most conveniently handled by just ignoring.
+All configurations within each of those accounts will share the same backend.
+And that backend almost never needs to change, so we can afford to keep its
+state local. Plus we have a chicken-and-egg situation creating a remote backend
+for the remote backend that is most conveniently handled by just ignoring.
 
 <!-- terraform-docs markdown table --output-file README.md --output-mode inject . -->
 <!-- BEGIN_TF_DOCS -->
