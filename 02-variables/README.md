@@ -6,7 +6,7 @@ Some guided exercises to get familiar with:
 - Input variables
 - Variable files
 
-## Group Exercise - Multiple files
+## Exercise - Multiple files
 
 Rather than a single `main.tf`, this directory uses multiple files.
 
