@@ -94,8 +94,7 @@ Change the resource specification as follows:
 > [!TIP]
 > Booleans do not get quoted.
 
-> [!TIP]
-> Try `terraform fmt` to fix formatting.
+As you make changes, use `terraform fmt` to fix formatting.
 
 ## Clean up
 
