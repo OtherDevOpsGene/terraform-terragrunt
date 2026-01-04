@@ -65,7 +65,6 @@ you use AWS managed temporary credentials, that's what Terraform uses.
 
 ```shell
 aws sts get-caller-identity
-aws s3 ls
 ```
 
 ## Group Exercise - Local backend
@@ -133,10 +132,11 @@ Run this as the instructor:
 
 aws ec2 create-tags \
   --resources $(aws ec2 describe-instances \
-    --filters "Name=image-id,Values=ami-039e808802de4ff32" "Name=instance-state-name,Values=running" \
+    --filters "Name=image-id,Values=ami-07f75595710e1c42b" "Name=instance-state-name,Values=running" \
     --query "Reservations[*].Instances[*].InstanceId" \
-    --output text) \
-  --tags "Key=Sneaky,Value='Someone added this while you weren\'t looking'"
+    --output text --region us-east-2) \
+  --tags "Key=Sneaky,Value='Someone added this while you weren\'t looking'" \
+  --region us-east-2
 
 -->
 
@@ -158,6 +158,7 @@ You'll have to jump into the earlier directories to clean them as well, since
 that is where their state files are kept.
 
 ```shell
+cd ../04-state
 terraform destroy
 cd ../02-variables
 terraform destroy
