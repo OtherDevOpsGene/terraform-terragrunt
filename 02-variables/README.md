@@ -72,7 +72,6 @@ terraform plan
 - Change the `Owner` tag on the deployed instance
 - Change the name from `webserver` to something else
 - Apply the changes
-- **Stretch:** Use a variable for the AWS region to deploy, but make it optional
 
 ## Don't clean up
 
