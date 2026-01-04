@@ -154,12 +154,10 @@ terraform apply
 
 Before Lesson 05, please clean up.
 
-You'll have to jump into the earlier directories to clean them as well, since
+You'll have to jump into each of the earlier directories to clean them, since
 that is where their state files are kept.
 
 ```shell
-cd ../04-state
-terraform destroy
 cd ../02-variables
 terraform destroy
 cd ../03-data
