@@ -14,11 +14,11 @@ locally-defined (i.e., under the `modules` subdirectory) or can be pulled from
 the [HashiCorp Registry](https://registry.terraform.io/browse/modules) and other
 sources.
 
-[!CAUTION]
-Using any third-party module with your cloud credentials is literally giving a
-stranger's code complete access to your account. Some publishers are more
-trustworthy than others- look at the number of downloads as a gauge. At least
-review the plan carefully.
+> [!CAUTION]
+> Using any third-party module with your cloud credentials is literally giving a
+> stranger's code complete access to your account. Some publishers are more
+> trustworthy than others- look at the number of downloads as a gauge. At least
+> review the plan carefully.
 
 ## Exercise - Using a third-party module
 

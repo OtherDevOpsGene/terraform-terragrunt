@@ -91,7 +91,11 @@ Change the resource specification as follows:
 - Apply the changes
 - **Stretch:** Require Instance Metadata Service Version 2 (IMDSv2)
 
-Hint: Booleans do not get quoted.
+> [!TIP]
+> Booleans do not get quoted.
+
+> [!TIP]
+> Try `terraform fmt` to fix formatting.
 
 ## Clean up
 
