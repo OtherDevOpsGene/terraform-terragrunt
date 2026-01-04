@@ -11,7 +11,7 @@ are going to use a remote state backend.
 
 - Update the `terraform` block in the `providers.tf` file with the backend
   configuration from our previous lesson
-  - Use `lesson06` or similar for the `key`
+  - Use `lesson06/terraform.tfstate` for the `key`
 - Apply
 
 ## Group Exercise - Remote backend

@@ -10,7 +10,7 @@ Self-guided exercises to continue learning Terraform and modules.
 
 - Update the `terraform` block in the `providers.tf` file with the backend
   configuration from our previous lesson
-  - Use a different `key` than before
+  - Use a different `key` than before (e.g., `lesson08/terraform.tfstate`)
 - Apply
 
 ## Examine - Local module
