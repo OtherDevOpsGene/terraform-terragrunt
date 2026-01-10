@@ -25,8 +25,10 @@ sources.
 - Use the Cloud Posse `tfstate-backend` module to create an AWS S3 bucket and a
   DynamoDB table to manage remote state
   - replace the `xxxxx` placeholders and add Terraform files, as necessary
-- Set the namespace to be your initials
-- Set the name to be 4 digits of your choice (to keep things globally unique)
+- Set the namespace to be your initials followed by 4 digits of your choice (to
+  keep things globally unique)
+- Set the name to be `tfstate`, because we are going to use this for all our
+  remote state in the short future we have remaining
 - Output the rendered Terraform backend configuration file to the screen
 
 ## What we just did
