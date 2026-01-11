@@ -1,4 +1,4 @@
-# Lesson 08- Extra exercises
+# Lesson 09- Extra exercises
 
 Self-guided exercises to continue learning Terraform and modules.
 
@@ -10,7 +10,7 @@ Self-guided exercises to continue learning Terraform and modules.
 
 - Update the `terraform` block in the `providers.tf` file with the backend
   configuration from our previous lesson
-  - Use a different `key` than before (e.g., `lesson08/terraform.tfstate`)
+  - Use a different `key` than before (e.g., `lesson-09/terraform.tfstate`)
 - Apply
 
 ## Examine - Local module
