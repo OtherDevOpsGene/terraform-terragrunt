@@ -1,4 +1,4 @@
-# Lesson 05 - Terragrunt
+# Lesson 07 - Terragrunt
 
 Some guided exercises to get familiar with:
 
