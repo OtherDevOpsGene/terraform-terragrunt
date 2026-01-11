@@ -1,11 +1,111 @@
-# Lesson 07 - Terragrunt
+# Lesson 07 - Unneeded Terragrunt
 
 Some guided exercises to get familiar with:
 
-- Terragrunt
-- `backend` variables
-- Parallel directories
+- Terragrunt lifecycle
+- Terragrunt backend handling
 
+Terragrunt is a thin wrapper around Terraform to make large Terraform
+configuration easier to maintain than with Terraform alone. In particular, it
+espouses DRY (Don't Repeat Yourself) by trading a little declarativeness and
+flexibility with some simple convention.
+
+We'll see some of that in a minute. Let's start really basic. The basic takeaway
+here is that if you are using Terragrunt you are still using Terraform, just not
+directly.
+
+## Group Exercise - Almost hello world again
+
+This Terraform code is the same as Lesson 03 again, with the addition of the
+empty file `terragrunt.hcl`.
+
+- Add the `terraform.tfvars` for the `owner_email` and `server_name` variables
+
+Here is how the Terraform lifecycle works in Terragrunt.
+
+```shell
+terragrunt init
+terragrunt plan
+terragrunt apply
+```
+
+## Group Exercise - Terragrunt remote backend
+
+We can do something here with Terragrunt that is both easy and uses some
+Terragrunt features.
+
+Since Lesson 03 used a local state backend, we see how Terragrunt handles the
+backend configuration.
+
+- Add the following to `terragrunt.hcl`, replacing `xxxxxx` with your initials
+  and four random digits (doesn't have to be the same as you used earlier, but
+  it can be):
+
+```terraform
+remote_state {
+  backend = "s3"
+  generate = {
+    path      = "backend.tf"
+    if_exists = "overwrite"
+  }
+  config = {
+    bucket       = "xxxxxx-terragrunt"
+    key          = "${path_relative_to_include()}/terraform.tfstate"
+    region       = "us-east-2"
+    encrypt      = true
+    use_lockfile = true
+  }
+}
+```
+
+This is a little different than the remote state configuration the Cloud Posse
+module generated for use, after it generated the S3 bucket and DynamoDB table
+that make up the S3 backend.
+
+- Re-initialize
+
+```console
+$ terragrunt init
+16:49:11.702 STDOUT terraform: Initializing the backend...
+...
+16:49:13.005 ERROR  Suggested fixes:
+Remote state bucket not found, create it manually or rerun with --backend-bootstrap to provision automatically.
+```
+
+Among other things, Terragrunt points out that we haven't created the backend,
+which is valid.
+
+- Bootstrap the backend as suggested
+
+```console
+$ terragrunt init --backend-bootstrap
+Remote state S3 bucket xxxxxx-terragrunt does not exist or you don't have permissions to access it. Would you like Terragrunt to create it? (y/n)
+```
+
+Terragrunt helpfully creates a remote backend for us. Next, Terraform offers to
+migrate our local state to remote. We could have done that without Terragrunt as
+long as we created the remote backend ourselves, e.g., with the Cloud Posse
+module.
+
+Not a huge win, but it is an advantage of Terragrunt.
+
+- Apply, just to see what happens
+
+Hopefully it isn't surprising at this point, but idempotency still works here.
+We just moved from a local backend to a remote backend, and let Terragrunt
+handle the creation of the remote backend.
+
+## Clean up
+
+Please clean up.
+
+```shell
+terragrunt destroy
+```
+
+We should notice that the remote-backend we created was not cleaned up.
+Terragrunt understands that it has a different lifecycle than the EC2 instance
+we were creating.
 
 <!-- terraform-docs markdown table --output-file README.md --output-mode inject . -->
 <!-- BEGIN_TF_DOCS -->
@@ -20,7 +120,7 @@ Some guided exercises to get familiar with:
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.16.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 6.27.0 |
 
 ## Modules
 
