@@ -34,5 +34,30 @@ Modules absolutely help, but eventually you develop some parallel code trees,
 and Terraform doesn't have any sort of variable inheritance or hierarchy. This
 is where Terragrunt shines.
 
-## Group Exercise - A Terragrunt configuration
+## Example - A Terragrunt skeleton
 
+I had Copilot generate a Terragrunt skeleton for us, and this is what it came up
+with. 
+
+Always impressed with itself, Copilot liked this structure because:
+
+- Zero duplication — modules live once, environments reuse them
+- Clear separation — Terragrunt handles orchestration, Terraform handles resources
+- Automatic state isolation — each environment + stack gets its own state
+- Easy to scale — add new stacks or environments without refactoring
+- Terragrunt-friendly — uses `path_relative_to_include()` correctly
+
+The key for me is that it shows how the `terragrunt.hcl` files all point home to
+create a hierarchy.
+
+## Why not Terragrunt?
+
+As important as when to use Terragrunt, is when not to. If you can keep things
+simple, separate environments using variable files, and keep different
+environments almost identical for consistency sake, you'll be happier. 
+
+As soon as you need a variable in your `backend`, you'll almost certainly want
+Terragrunt. Until then, revel in the simplicity of straightforward, declarative
+code. 
+
+## Fin.
